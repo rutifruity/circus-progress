@@ -10,7 +10,16 @@ const HomePage = () => {
       <CssBaseline />
       <Header />
       <SideBar />
-      <Gallery />
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          marginTop: "64px", // Adjust based on the height of your Header
+        }}
+      >
+        <Gallery />
+      </Box>
     </Box>
   );
 };

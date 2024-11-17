@@ -1,20 +1,18 @@
-import content from "@/text-content";
-import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 import React from "react";
+import { AppBar, Toolbar, Typography, Box } from "@mui/material";
 
-export default function Header() {
+const Header: React.FC = () => {
   return (
-    <AppBar
-      position="fixed"
-      sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-    >
+    <AppBar position="fixed">
       <Toolbar>
         <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center" }}>
           <Typography variant="h6" noWrap>
-            {content.header}
+            Header
           </Typography>
         </Box>
       </Toolbar>
     </AppBar>
   );
-}
+};
+
+export default Header;
