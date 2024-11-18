@@ -1,22 +1,23 @@
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
+import TrickCard, { TrickCardProps } from "./trick-card";
+import moment from "moment";
 
 export default function Gallery() {
-  const cards = [1, 2, 3, 4, 5, 6, 7, 8];
+  const cards: TrickCardProps[] = [
+    {
+      img: "/imgs/one.jpeg",
+      trick: "chinstand",
+      date: moment("2023-10-28").toDate(),
+      notes: "First practtice after two weeks off, got fired that day",
+      id: "1",
+    },
+  ];
 
   return (
     <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
       {cards.map((card, index) => (
-        <Card key={index} sx={{ width: "calc(25% - 16px)", marginBottom: 2 }}>
-          <CardContent>
-            <Typography variant="h5" component="div">
-              Card {card}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              This is card number {card}.
-            </Typography>
-          </CardContent>
-        </Card>
+        <TrickCard key={index} {...card} />
       ))}
     </Box>
   );
