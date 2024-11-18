@@ -1,5 +1,6 @@
 import React from "react";
 import { AppBar, Toolbar, Typography, Box } from "@mui/material";
+import content from "@/text-content";
 
 const Header: React.FC = () => {
   return (
@@ -7,7 +8,7 @@ const Header: React.FC = () => {
       <Toolbar>
         <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center" }}>
           <Typography variant="h6" noWrap>
-            Header
+            {content.header}
           </Typography>
         </Box>
       </Toolbar>
