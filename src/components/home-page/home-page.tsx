@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CssBaseline, Box } from "@mui/material";
 import Header from "../header/header";
 import SideBar from "../side-bar/side-bar";
 import Gallery from "../gallery/gallery";
+import { useRouter } from "next/router";
 
-const HomePage = () => {
+interface HomePageProps {
+  page?: string;
+}
+
+const HomePage = ({ page }: HomePageProps) => {
+  useEffect(() => {
+    console.log("page", page);
+  }, [page]);
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -15,10 +24,11 @@ const HomePage = () => {
         sx={{
           flexGrow: 1,
           p: 3,
-          marginTop: "64px", // Adjust based on the height of your Header
+          marginTop: "64px",
         }}
       >
         <Gallery />
+        {page && <p>Current Page: {page}</p>}
       </Box>
     </Box>
   );

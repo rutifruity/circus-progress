@@ -1,9 +1,22 @@
 import React from "react";
-import { Drawer, Toolbar, Box } from "@mui/material";
+import Link from "next/link";
+import {
+  Drawer,
+  Toolbar,
+  Box,
+  List,
+  ListItem,
+  ListItemText,
+} from "@mui/material";
+import content from "@/text-content";
 
 const drawerWidth = 240;
 
 const SideBar: React.FC = () => {
+  const navItems = Object.values(content.sideBar).map((value) => {
+    return { text: value, path: `/tricks/${value.toLowerCase()}` };
+  });
+
   return (
     <Drawer
       variant="permanent"
@@ -15,13 +28,15 @@ const SideBar: React.FC = () => {
     >
       <Toolbar />
       <Box sx={{ overflow: "auto" }}>
-        {/* <List>
-          {content.sidebarItems.map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} />
+        {navItems.map((item) => (
+          <List key={item.text}>
+            <ListItem key={item.text}>
+              <Link href={item.path} passHref>
+                <ListItemText primary={item.text} />
+              </Link>
             </ListItem>
-          ))}
-        </List> */}
+          </List>
+        ))}
       </Box>
     </Drawer>
   );
